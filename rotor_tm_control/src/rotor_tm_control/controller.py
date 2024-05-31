@@ -292,12 +292,8 @@ class controller:
         #    qd_rot_des[qn] = Rot_des_qn 
     
         #return qd_F, qd_M
-<<<<<<< HEAD
 
         return mu, att_acc_c, qd_F, qd_M, qd_quat_des, qd_rot_des
-=======
-        return mu, att_acc_c, qd_F, qd_M, qd_quat_des, qd_rot_des, pl_F, pl_M
->>>>>>> 2517ef75853df6f53083a7aa94b9eabf9d23e9b9
 
     # untested
     def cooperative_payload_controller(self, ql, params):
