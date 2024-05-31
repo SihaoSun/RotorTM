@@ -8,7 +8,6 @@ from nav_msgs.msg import Odometry, Path
 from geometry_msgs.msg import PoseStamped, Wrench
 from sensor_msgs.msg import Imu
 from rotor_tm_msgs.msg import RPMCommand, FMCommand
-from quadrotor_msgs.msg import ukf_measurement_update
 from rotor_tm_utils import utilslib, rosutilslib
 from rotor_tm_utils.vee import vee
 import time
@@ -519,16 +518,6 @@ class simulation_base():
 
             system_marker = MarkerArray()
             cable_point_list = np.zeros((2*self.nquad,3))
-
-            #uav_odom = Odometry()
-            #attach_odom = Odometry()
-            #ukf_measure = ukf_measurement_update()
-            #self.UKF_publisher[self.nquad+1].publish(ukf_measure)
-            #self.robot_odom_publisher[self.nquad+1].publish(uav_odom)
-            #self.attach_publisher[self.nquad+1].publish(attach_odom)
-            #self.UKF_publisher[self.nquad].publish(ukf_measure)
-            #self.robot_odom_publisher[self.nquad].publish(uav_odom)
-            #self.attach_publisher[self.nquad].publish(attach_odom)
 
             for uav_id in range(self.nquad-1, -1, -1):
                 if self.pl_params.mechanism_type == 'Rigid Link':
