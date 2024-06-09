@@ -662,7 +662,7 @@ class simulation_base():
 
             self.payload_odom_publisher.publish(payload_odom)
             self.robot_vio_publisher.publish(payload_vio)
-            self.payload_ctrl_wrench.publish(self.wrench_value)
+            # self.payload_ctrl_wrench.publish(self.wrench_value)
             # Publish payload path
             current_time = rospy.get_rostime()
 
@@ -750,10 +750,10 @@ class simulation_base():
 
             # Update cable visualization
             cable_marker_msg = rosutilslib.init_marker_msg(Marker(),5,0,self.worldframe,self.cable_marker_scale,self.cable_marker_color)
-            system_marker.markers.append(rosutilslib.update_line_msg(cable_marker_msg,cable_point_list,uav_id + 1))
+            system_marker.markers.append(rosutilslib.update_line_msg(cable_marker_msg,cable_point_list, self.nquad + 1))
 
             # Update payload visualization
-            system_marker.markers.append(rosutilslib.update_marker_msg(self.payload_marker_msg,load_pos[0:3],x[6:10],uav_id+2))
+            system_marker.markers.append(rosutilslib.update_marker_msg(self.payload_marker_msg,load_pos[0:3],x[6:10], self.nquad + 2))
             self.system_publisher.publish(system_marker)
 
             rate.sleep()
